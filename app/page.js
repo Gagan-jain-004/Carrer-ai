@@ -16,6 +16,7 @@ import { features } from "@/data/features";
 import { testimonial } from "@/data/testimonial";
 import { faqs } from "@/data/faqs";
 import { howItWorks } from "@/data/howItWorks";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
@@ -190,15 +191,30 @@ export default function LandingPage() {
               Join thousands of professionals who are advancing their careers
               with AI-powered guidance.
             </p>
-            <Link href="/dashboard" passHref>
+            <SignedOut>
+            <Link href="/sign-in" passHref>
+
               <Button
                 size="lg"
                 variant="secondary"
                 className="h-11 mt-5 animate-bounce"
-              >
+                >
                 Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+                </SignedOut>
+            <SignedIn>
+            <Link href="/interview" passHref>
+
+              <Button
+                size="lg"
+                variant="secondary"
+                className="h-11 mt-5 animate-bounce"
+                >
+                Start Using Growth Tools <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+                </SignedIn>
           </div>
         </div>
       </section>

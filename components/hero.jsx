@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const HeroSection = () => {
   const imageRef = useRef(null);
@@ -41,11 +42,23 @@ const HeroSection = () => {
           </p>
         </div>
         <div className="flex justify-center space-x-4">
-          <Link href="/dashboard">
+          <SignedOut>
+          <Link href="/sign-in">
+
             <Button size="lg" className="px-8">
               Get Started
             </Button>
           </Link>
+          </SignedOut>
+          
+          <SignedIn>
+          <Link href="/interview">
+
+            <Button size="lg" className="px-8">
+              Explore Growth Tools
+            </Button>
+          </Link>
+          </SignedIn>
          
         </div>
         <div className="hero-image-wrapper mt-5 md:mt-0">

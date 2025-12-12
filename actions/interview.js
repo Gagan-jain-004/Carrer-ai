@@ -149,7 +149,7 @@ export async function saveQuizResult(questions, answers, score) {
     question: q.question,
     answer: q.correctAnswer,
     userAnswer: answers[index],
-    isCorrect: q.correctAnswer === answers[index],
+    isCorrect: q.correctAnswer?.trim() === answers[index]?.trim(),
     explanation: q.explanation,
   }));
 
